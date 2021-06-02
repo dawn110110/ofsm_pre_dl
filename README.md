@@ -10,11 +10,11 @@ headless server downloading could be rather slow in China. and ofsm download it 
 
 crawling from factorio.com for latest healess server tar, and download it to `./download` dir. run this every 3 hours by cron:
 
-`0 */3 * * * /opt/crawler.sh`
+e.g. `0 */3 * * * /opt/crawler.sh`
 
 ## build and run the ofsm_pre_dl
 
-```
+```bash
 # install axel and docker engine
 apt install axel -y
 
