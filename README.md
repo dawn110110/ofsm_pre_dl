@@ -10,7 +10,13 @@ headless server downloading could be rather slow in China. and ofsm download it 
 
 crawling from factorio.com for latest healess server tar, and download it to `./download` dir. run this every 3 hours by cron:
 
-e.g. `0 */3 * * * /opt/crawler.sh`
+```
+crontab -e
+
+# input
+0 */3 * * * /root/factorio-server/ofsm_pre_dl/crawler.sh >> /root/factorio-server/ofsm_pre_dl/cw.log 2>&1
+# or you can rsync from other hosts.
+```
 
 ## build and run the ofsm_pre_dl
 
@@ -25,13 +31,7 @@ sh /opt/crawler.sh
 sh build.sh
 
 # run the ofsm
-docker run \
-    -d \
-    -e PRE_DOWNLOAD_DIR=/opt/pre_download \
-    -v $(pwd)/download:/opt/pre_download \
-    --name ofsm_pre_dl \
-    dawn/ofsm_pre_dl:latest
-# or sh run_with_pre_dl.sh
+sh run_with_pre_dl.sh
 
 # docker logs ofsm_pre_dl, you should see ..
 PRE_DOWNLOAD_DIR=/opt/pre_download given. won't download, woooo!
