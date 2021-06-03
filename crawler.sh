@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 # 最新版本的 factorio 下载地址 (linux x64 headless 版）
 F_LATEST_DOWNLOAD_PATH=$(curl https://www.factorio.com/download 2>/dev/null \
     | grep get-download \
@@ -12,7 +13,7 @@ F_LATEST_DOWNLOAD_URL="https://www.factorio.com"${F_LATEST_DOWNLOAD_PATH}
 F_VERSION=$(echo $F_LATEST_DOWNLOAD_PATH | awk -F '/' '{print $(NF-2)}')
 F_LOCAL_NAME="factorio_linux64_headless_"$F_VERSION".tar.xz"
 
-DL_DIR=${1:-"./download"}
+DL_DIR=/root/factorio-server/ofsm_pre_dl/download
 mkdir -p $DL_DIR
 DL_FULL_PATH=${DL_DIR}/${F_LOCAL_NAME}
 

@@ -37,7 +37,9 @@ install_game() {
             exit 1
         fi
         echo "Found latest file. [file_name="${LATEST_FILE}"]"
+        set -x
         tar -xf ${PRE_DOWNLOAD_DIR}/${LATEST_FILE}
+        ls -alt
         echo "Extract done"
     fi
 }

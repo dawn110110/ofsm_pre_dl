@@ -5,6 +5,8 @@
 #
 # 可以 cron 例行调度 crawler.sh 脚本，实现抓取最新版本并下载到本地.
 FROM ofsm/ofsm:latest
+RUN apt update
+RUN apt install tzdata -y
 COPY ./entrypoint.sh /opt/entrypoint_pre_dl.sh
 RUN ["chmod", "655", "/opt/entrypoint_pre_dl.sh"]
 ENTRYPOINT ["/opt/entrypoint_pre_dl.sh"]
